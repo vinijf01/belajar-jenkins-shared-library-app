@@ -4,9 +4,17 @@ pipeline {
 			label "linux && java11"
 		}
 	}
+	environment {
+		AUTHOR = "Vini Jumatul Fitri"
+		EMAIL = "vinijumatul@gmail.com"
+		WEB = "https://vinijumatulf.my.id/"
+	}
 	stages {
 		stage('Prepare') {
 			steps {
+				echo("Author ${AUTHOR}")
+				echo("Email ${EMAIL}")
+				echo("Web ${WEB}")
 				echo("Start Job : ${env.JOB_NAME}")
 				echo("Start Build : ${env.BUILD_NUMBER}")
 				echo("Branch Name : ${env.BRANCH_NAME}")
