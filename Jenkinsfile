@@ -46,6 +46,10 @@ pipeline {
 		
 		stage('Test') {
 			steps {
+				options {
+				disableConcurrentBuilds()
+				timeout(time: 10, unit: 'SECONDS')
+				}
 				script {
 					def data = [
 						"firstName" : "Vini Jumatul",
