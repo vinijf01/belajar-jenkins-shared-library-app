@@ -9,9 +9,9 @@ pipeline {
 		EMAIL = "vinijumatul@gmail.com"
 		WEB = "https://vinijumatulf.my.id/"
 	}
-	triggers {
-		cron("*/5 * * * *")
-	}
+	// triggers {
+	// 	cron("*/5 * * * *")
+	// }
 	
 	stages {
 		stage('Prepare') {
