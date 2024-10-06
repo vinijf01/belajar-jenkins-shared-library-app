@@ -37,14 +37,15 @@ pipeline {
 						values "32", "64"
 					}	
 				}
-			}
-			stages {
+				stages {
 				stage("OS SETUP"){
 					steps {
 						echo("Setup ${OS} ${ARC}}")
 					}
 				}
 			}
+			}
+			
 		}
 		stage('Preperation'){
 			parallel {
