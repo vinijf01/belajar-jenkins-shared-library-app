@@ -5,6 +5,7 @@ pipeline {
 		}
 	}
 	environment {
+		
 		AUTHOR = "Vini Jumatul Fitri"
 		EMAIL = "vinijumatul@gmail.com"
 		WEB = "https://vinijumatulf.my.id/"
@@ -152,7 +153,14 @@ pipeline {
 				}
 			}
 			steps {
-				echo("Release it")
+				withCredentials([usernamePassword(
+					credentialsId: "vini_rahasia"
+					usernameVariabel: "USER"
+					passwordVariable: "PASSWORD"
+				)]){
+					sh("echo 'Release it with -u $USER -p $PASSWORD' > 'release.txt'")
+				}
+				
 			}
 		}
 	}
