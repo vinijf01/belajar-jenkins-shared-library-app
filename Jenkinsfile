@@ -9,11 +9,31 @@ pipeline {
 		EMAIL = "vinijumatul@gmail.com"
 		WEB = "https://vinijumatulf.my.id/"
 	}
+	parameters {
+		string(name: 'NAME', defaultValue: "Guest", description: "What is your name?")
+		text(name: 'DESCRIPTION', defaultValue: "Guest", description: "Tell me about you?")
+		booleanParam(name: 'DEPLOY', defaultValue: false, description: "Need to deploy?")
+		choice(name: 'SOCIAL_MEDIA', choices: ['Instagram', 'Facebook', 'Twitter'], description: "Which Social Media?")
+		password(name: 'SECRET', defaultValue: "", description: "Encrypt Key")
+	}
+	//option {
+	//	disableConcurrentBuilds()
+	//	timeout(time: 10, unit: 'MINUTES')
+	//}
 	// triggers {
 	// 	cron("*/5 * * * *")
 	// }
 	
 	stages {
+		stage('Parameter'){
+			steps {
+				echo "Hello ${params.NAME}!"
+				echo "You description is ${params.DESCRIPTION}!"
+				echo "You social media is ${params.SOCIAL_MEDIA} user!"
+				echo "You to deploy ${params.DEPLOY} to deploy!"
+				echo "You secret is ${params.SECRET}!"
+			}
+		}
 		stage('Prepare') {
 			environment {
 				APP = credentials("vini_rahasia")
@@ -26,7 +46,7 @@ pipeline {
 				echo("Start Build : ${env.BUILD_NUMBER}")
 				echo("Branch Name : ${env.BRANCH_NAME}")
 				echo("App User:  ${APP_USR}")
-				echo("App User:  ${APP_PSW}")
+				//echo("App User:  ${APP_PSW}")
 				sh("echo 'App Password: ${APP_PSW}' > 'rahasia.txt'")
 			}
 		}
