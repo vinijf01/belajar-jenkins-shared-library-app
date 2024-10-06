@@ -89,10 +89,17 @@ pipeline {
 				}
 			}
 			steps {
-				echo "Hello Deploy 1"
-				sleep(5)
-				echo "Hello Deploy 2"
-				echo "Hello Deploy 3"
+				echo("Deploy to ${TARGET_ENV}")
+			}
+		}
+		stage ('Release'){
+			when {
+				expression {
+					return params.DEPLOY
+				}
+			}
+			steps {
+				echo("Release it")
 			}
 		}
 	}
