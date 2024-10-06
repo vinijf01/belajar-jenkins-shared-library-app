@@ -26,7 +26,7 @@ pipeline {
 	
 	stages {
 		stage('Preperation'){
-			stages {
+			parallel {
 				stage('Prepare Java'){
 					steps {
 						echo("Prepare Java")
