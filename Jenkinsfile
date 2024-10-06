@@ -25,6 +25,27 @@ pipeline {
 	// }
 	
 	stages {
+		stage('OS Setup') {
+			matrix {
+				axes {
+					axis {
+						name "OS"
+						values "linux", "windows", "mac"
+					}
+					axis {
+						name "ARC"
+						values "32", "64"
+					}	
+				}
+			}
+			stages {
+				stage("OS SETUP"){
+					steps {
+						echo("Setup ${OS} ${ARC}}")
+					}
+				}
+			}
+		}
 		stage('Preperation'){
 			parallel {
 				stage('Prepare Java'){
