@@ -85,7 +85,7 @@ pipeline {
 				ok "Yes, of course"
 				submitter "admin1, vinijf"
 				parameters{
-					choice(name: 'TARGET_ENV', choice: ['DEV', 'QA', 'PROD'], description: 'We will deploy to?')
+					choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'We will deploy to?')
 				}
 			}
 			steps {
