@@ -1,5 +1,6 @@
 @Library("belajar-jenkins-shared-library@main")_
-// @Library("belajar-jenkins-shared-library@main") _
+
+import programmerzamannow.jenkins.Output;
 
 pipeline {
 	agent any
@@ -8,6 +9,13 @@ pipeline {
 			steps {
 				script {
 					hello.world()
+				}
+			}
+		}
+		stage("Hello Groovy") {
+			steps {
+				script {
+					Output.hello("Groovy")
 				}
 			}
 		}
