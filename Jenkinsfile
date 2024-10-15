@@ -3,7 +3,8 @@
 import programmerzamannow.jenkins.Output;
 
 pznPipeline([
-	type: "wrong"
+	//type: "wrong"
+	type: "maven"
 ])
 //mavenPipeline()
 
