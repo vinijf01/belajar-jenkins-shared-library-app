@@ -5,10 +5,11 @@ import programmerzamannow.jenkins.Output;
 pipeline {
 	agent any
 	stages {
-		stage("Hello World") {
+		stage("Global Variable") {
 			steps {
 				script {
-					hello.world()
+					echo(author.name())
+					echo(author.channel())
 				}
 			}
 		}
